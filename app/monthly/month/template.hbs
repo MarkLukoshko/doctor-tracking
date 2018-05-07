@@ -1,0 +1,8 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{month-list-heading month=model.month contracts=model.contracts}}
+  </div>
+  {{#if (gt model.month.workedTime 0)}}
+    {{period-table periods=model.month.periods contracts=model.contracts}}
+  {{/if}}
+</div>

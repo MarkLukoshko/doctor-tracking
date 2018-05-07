@@ -1,0 +1,6 @@
+<div class="panel-body">
+  {{contract-detail-heading contract=model.contract onDelete=(action "redirectToContracts")}}
+</div>
+{{#if model.contract.periods}}
+  {{period-table periods=model.contract.periods contracts=model.contracts showJumpToContractButton=false}}
+{{/if}}

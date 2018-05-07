@@ -1,0 +1,17 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>{{t "period-table.start"}}</th>
+      <th>{{t "period-table.end"}}</th>
+      <th>{{t "period-table.duration"}}</th>
+      <th>{{t "period-table.contract"}}</th>
+      <th>{{t "period-table.comment"}}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each sortedPeriods as |period|}}
+      {{period-table-entry period=period contracts=contracts showJumpToContractButton=showJumpToContractButton}}
+    {{/each}}
+  </tbody>
+</table>

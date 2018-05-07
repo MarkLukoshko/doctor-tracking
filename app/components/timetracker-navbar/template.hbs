@@ -1,0 +1,54 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="time-tracker-navbar-content">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#link-to "index" class="navbar-brand"}}doctrack{{/link-to}}
+    </div>
+
+    <div class="collapse navbar-collapse" id="time-tracker-navbar-content">
+      {{#if session.isAuthenticated}}
+        <ul class="nav navbar-nav nav-pills">
+          {{#bs-dropdown tagName="li"}}
+            {{#bs-dropdown-toggle}}
+              {{t "navbar.times"}}&nbsp;<span class="caret"></span>
+            {{/bs-dropdown-toggle}}
+            {{#bs-dropdown-menu}}
+              <li>{{#link-to "weekly"}}{{t "navbar.weekly"}}{{/link-to}}</li>
+              <li>{{#link-to "monthly"}}{{t "navbar.monthly"}}{{/link-to}}</li>
+            {{/bs-dropdown-menu}}
+          {{/bs-dropdown}}
+          <li>
+            {{#link-to "contracts"}}{{t "navbar.contracts"}}{{/link-to}}
+          </li>
+        </ul>
+      {{/if}}
+
+      <ul class="nav navbar-nav nav-pills navbar-right">
+        {{#if session.isAuthenticated}}
+          {{timer-component}}
+          <li class="navbar-btn">
+            {{log-time-component}}
+          </li>
+        {{/if}}
+        <li class="navbar-btn" style="padding-left: 10px;">
+          {{select-language}}
+        </li>
+        {{#if session.isAuthenticated}}
+          {{#bs-dropdown tagName="li"}}
+            {{#bs-dropdown-toggle}}
+              {{session.data.authenticated.user.fullName}}&nbsp;<span class="caret"></span>
+            {{/bs-dropdown-toggle}}
+            {{#bs-dropdown-menu}}
+              <li><a {{action "signout"}}>{{t "navbar.sign-out"}}</a></li>
+            {{/bs-dropdown-menu}}
+          {{/bs-dropdown}}
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>

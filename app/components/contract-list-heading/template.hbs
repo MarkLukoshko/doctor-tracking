@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-lg-10">
+    <h2>{{t "contract.title"}}</h2>
+  </div>
+  <div class="col-lg-2">
+    <h2 class="text-right">
+      {{add-contract-component}}
+    </h2>
+  </div>
+</div>
+{{#if (not hasContracts)}}
+  <hr>
+  <h4>
+    {{t "contract.no-contracts"}}
+  </h4>
+{{/if}}

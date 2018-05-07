@@ -1,0 +1,28 @@
+{{#if isOpened}}
+{{#dialog-wrapper}}
+  {{#bs-modal title=title open=isOpened body=false footer=false submitAction=(action "saveContract")
+      closeAction=(action "closeDialog")}}
+    {{#bs-modal-body}}
+      {{#bs-form action="saveContract" model=buffer}}
+        {{#bs-form-group}}
+          {{bs-form-element controlType="text" label=(t "contract-dialog.name")  property="name"}}
+        {{/bs-form-group}}
+        {{#bs-form-group}}
+          {{#bs-form-element label=(t "contract-dialog.start") property="startDate" as |value id|}}
+            {{bs-datetimepicker date=value locale="de" id=id format="dddd, DD. MMMM YYYY"}}
+          {{/bs-form-element}}
+        {{/bs-form-group}}
+        {{#bs-form-group}}
+          {{#bs-form-element label=(t "contract-dialog.end") property="endDate" as |value id|}}
+            {{bs-datetimepicker date=value locale="de" id=id format="dddd, DD. MMMM YYYY"}}
+          {{/bs-form-element}}
+        {{/bs-form-group}}
+        {{#bs-form-group}}
+          {{bs-form-element controlType="number" label=(t "contract-dialog.hours-per-week") property="hoursPerWeek"}}
+        {{/bs-form-group}}
+      {{/bs-form}}
+    {{/bs-modal-body}}
+    {{bs-modal-footer closeTitle=(t "contract-dialog.cancel") submitTitle=(t "contract-dialog.save")}}
+  {{/bs-modal}}
+{{/dialog-wrapper}}
+{{/if}}

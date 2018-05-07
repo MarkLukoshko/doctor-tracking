@@ -1,0 +1,12 @@
+<h2>
+  {{t "contract.detail.title" name=contract.name}}
+  {{contract-edit-buttons contract=contract onDelete=onDelete}}
+</h2>
+<hr>
+<h4>
+  {{t "contract.detail.info" from=(moment-format contract.startDate "dddd, DD. MMMM YYYY")
+  to=(moment-format contract.endDate "dddd, DD. MMMM YYYY") hours=contract.hoursPerWeek}}
+</h4>
+<h4>
+  {{t "contract.detail.time"}} {{contract-time-info contract=contract}}
+</h4>

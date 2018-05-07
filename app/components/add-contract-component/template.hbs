@@ -1,0 +1,5 @@
+<button class="btn btn-primary" {{action "openAddContract"}}>
+  <span class="glyphicon glyphicon-plus"></span>
+</button>
+
+{{contract-dialog title=(t "contract.add") isOpened=isDialogOpened contract=contract}}

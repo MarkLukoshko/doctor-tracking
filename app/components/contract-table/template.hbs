@@ -1,0 +1,17 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>{{t "contract-table.name"}}</th>
+      <th>{{t "contract-table.start"}}</th>
+      <th>{{t "contract-table.end"}}</th>
+      <th>{{t "contract-table.hours-per-week"}}</th>
+      <th>{{t "contract-table.statistics"}}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each sortedContracts as |contract|}}
+      {{contract-table-entry contract=contract}}
+    {{/each}}
+  </tbody>
+</table>

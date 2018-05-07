@@ -1,0 +1,25 @@
+{{#bs-form action="signin" model=this}}
+  {{#bs-form-group}}
+    {{#bs-form-element property="username" as |value id|}}
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-user"></i>
+        </span>
+        {{input type="text" value=value placeholder=(t "login.username") class="form-control"}}
+      </div>
+    {{/bs-form-element}}
+  {{/bs-form-group}}
+  {{#bs-form-group}}
+    {{#bs-form-element property="password" as |value id|}}
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-lock"></i>
+        </span>
+        {{input type="password" value=value placeholder=(t "login.password") class="form-control"}}
+      </div>
+    {{/bs-form-element}}
+  {{/bs-form-group}}
+  {{#bs-form-group}}
+    {{bs-button defaultText=(t "login.action") type="primary" buttonType="submit" class="btn-block" disabled=(not (v-get this "isTruelyValid"))}}
+  {{/bs-form-group}}
+{{/bs-form}}

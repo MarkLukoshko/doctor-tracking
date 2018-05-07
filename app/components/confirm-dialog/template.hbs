@@ -1,0 +1,13 @@
+{{yield}}
+
+{{#if isOpened}}
+{{#dialog-wrapper}}
+  {{#bs-modal title=title open=isOpened body=false footer=false submitAction=(action "confirm")
+      closeAction=(action "cancel")}}
+    {{#bs-modal-body}}
+      {{content}}
+    {{/bs-modal-body}}
+    {{bs-modal-footer closeTitle=(t "confirm-dialog.cancel") submitTitle=confirmText}}
+  {{/bs-modal}}
+{{/dialog-wrapper}}
+{{/if}}

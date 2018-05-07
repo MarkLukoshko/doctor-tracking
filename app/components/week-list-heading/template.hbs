@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-lg-9">
+    <h2>
+      {{t "weekly.title" from=(moment-format week.startTime startFormat) to=(moment-format week.inclusiveEndTime "DD. MMMM YYYY")}}
+    </h2>
+  </div>
+  <div class="col-lg-3">
+    <h2 class="text-center">
+      {{#link-to "weekly.week" week.previousId class="btn btn-primary pull-left" disabled=(not week.hasPrevious)}}
+        <i class="glyphicon glyphicon-triangle-left"></i>
+      {{/link-to}}
+      &nbsp;{{t "weekly.cw" week=week.weekOfYear}}&nbsp;
+      {{#link-to "weekly.week" week.nextId class="btn btn-primary pull-right"}}
+        <i class="glyphicon glyphicon-triangle-right"></i>
+      {{/link-to}}
+    </h2>
+  </div>
+</div>
+<hr>
+<h4>
+  {{#if (gt week.workedTime 0)}}
+    {{t "weekly.worked" hours=(format-hours week.workedTime)}}
+  {{else}}
+    {{t "weekly.not-worked"}}
+  {{/if}}
+</h4>

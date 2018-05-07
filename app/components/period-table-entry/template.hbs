@@ -1,0 +1,31 @@
+<td>{{moment-format period.fromTime}}</td>
+<td>{{moment-format period.toTime}}</td>
+<td>{{t "period-table.entry.duration" hours=(format-hours period.duration)}}</td>
+<td>{{period.contract.name}}</td>
+<td>
+  {{#if period.comment}}
+    {{period.comment}}
+  {{else}}
+    -
+  {{/if}}
+</td>
+<td>
+  <div class="btn-group pull-right">
+    {{#if showJumpToContractButton}}
+      {{#link-to "contracts.detail" period.contract.id class="btn btn-xs btn-info"}}
+        <span class="glyphicon glyphicon-share-alt"></span>
+      {{/link-to}}
+    {{/if}}
+    <button class="btn btn-xs btn-warning" {{action "openEditDialog"}}>
+      <span class="glyphicon glyphicon-edit"></span>
+    </button>
+    <button class="btn btn-xs btn-danger" {{action "openDeleteDialog"}}>
+      <span class="glyphicon glyphicon-trash"></span>
+    </button>
+  </div>
+</td>
+
+{{log-time-dialog title=(t "period-table.entry.edit-title") confirmText=(t "period-table.entry.edit-action")
+    isOpened=isEditOpened period=period contracts=contracts}}
+{{confirm-dialog title=(t "period-table.entry.delete-title") content=(t "period-table.entry.delete-message")
+    confirmText=(t "period-table.entry.delete-action") isOpened=isDeleteOpened confirm=(action "deletePeriod")}}

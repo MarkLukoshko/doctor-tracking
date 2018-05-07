@@ -1,0 +1,31 @@
+{{#if isOpened}}
+{{#dialog-wrapper}}
+  {{#bs-modal title=title open=isOpened body=false footer=false submitAction=(action "logTime")
+      closeAction=(action "closeDialog")}}
+    {{#bs-modal-body}}
+      {{#bs-form action="logTime" model=buffer}}
+        {{#bs-form-group}}
+          {{#bs-form-element label=(t "log-time.start") property="fromTime" as |value id|}}
+            {{bs-datetimepicker date=value locale="de" id=id}}
+          {{/bs-form-element}}
+        {{/bs-form-group}}
+        {{#bs-form-group}}
+          {{#bs-form-element label=(t "log-time.end") property="toTime" as |value id|}}
+            {{bs-datetimepicker date=value locale="de" id=id}}
+          {{/bs-form-element}}
+        {{/bs-form-group}}
+        {{#bs-form-group}}
+          {{bs-form-element controlType="text" label=(t "log-time.comment") property="comment"}}
+        {{/bs-form-group}}
+        {{#bs-form-group}}
+          {{#bs-form-element label=(t "log-time.contract") property="contract" as |value id|}}
+            {{ted-select content=contracts onchange=(action (mut value)) selectClassNames="form-control"
+              optionValueKey="id" optionLabelKey="name" selected=initialSelection prompt=null}}
+          {{/bs-form-element}}
+        {{/bs-form-group}}
+      {{/bs-form}}
+    {{/bs-modal-body}}
+    {{bs-modal-footer closeTitle=(t "log-time.cancel") submitTitle=(first-not-none confirmText (t 'log-time.action'))}}
+  {{/bs-modal}}
+{{/dialog-wrapper}}
+{{/if}}

@@ -1,0 +1,8 @@
+<td>{{contract.name}}</td>
+<td>{{moment-format contract.startDate "dddd, DD. MMMM YYYY"}}</td>
+<td>{{moment-format contract.endDate "dddd, DD. MMMM YYYY"}}</td>
+<td>{{contract.hoursPerWeek}}</td>
+<td>{{contract-time-info contract=contract}}</td>
+<td>
+  {{{contract-edit-buttons contract=contract showInfoButton=true buttonExtraClass="btn-xs"}}}
+</td>

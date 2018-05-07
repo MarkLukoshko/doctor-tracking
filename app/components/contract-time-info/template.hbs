@@ -1,0 +1,5 @@
+<span class={{if contract.hasWorkDoneUntilNow "text-success" "text-danger"}}>
+  {{format-hours contract.workedTime}}/{{format-hours contract.shouldTimeUntilNow}}
+</span>
+
+{{t "contract-time-info.text" hours=(format-hours contract.shouldTime)}}

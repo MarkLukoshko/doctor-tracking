@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-lg-9">
+    <h2>
+      {{t "monthly.title" from=(moment-format month.startTime "DD.") to=(moment-format month.inclusiveEndTime "DD. MMMM YYYY")}}
+    </h2>
+  </div>
+  <div class="col-lg-3">
+    <h2 class="text-center">
+      {{#link-to "monthly.month" month.previousId class="btn btn-primary pull-left" disabled=(not month.hasPrevious)}}
+        <i class="glyphicon glyphicon-triangle-left"></i>
+      {{/link-to}}
+      &nbsp;{{t "monthly.info" name=month.name year=month.year}}&nbsp;
+      {{#link-to "monthly.month" month.nextId class="btn btn-primary pull-right"}}
+        <i class="glyphicon glyphicon-triangle-right"></i>
+      {{/link-to}}
+    </h2>
+  </div>
+</div>
+<hr>
+<h4>
+  {{#if (gt month.workedTime 0)}}
+    {{t "monthly.worked" hours=(format-hours month.workedTime)}}
+  {{else}}
+    {{t "monthly.not-worked"}}
+  {{/if}}
+</h4>

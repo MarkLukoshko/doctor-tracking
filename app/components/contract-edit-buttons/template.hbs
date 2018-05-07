@@ -1,0 +1,17 @@
+<div class="btn-group pull-right">
+  {{#if showInfoButton}}
+    {{#link-to "contracts.detail" contract.id class=showInfoClass}}
+      <span class="glyphicon glyphicon-info-sign"></span>
+    {{/link-to}}
+  {{/if}}
+  <button class="btn btn-warning {{buttonExtraClass}}" {{action "openEditDialog"}}>
+    <span class="glyphicon glyphicon-edit"></span>
+  </button>
+  <button class="btn btn-danger {{buttonExtraClass}}" {{action "openDeleteDialog"}}>
+    <span class="glyphicon glyphicon-trash"></span>
+  </button>
+</div>
+
+{{contract-dialog title=(t "contract-edit-buttons.edit-title") isOpened=isEditOpened contract=contract}}
+{{confirm-dialog title=(t "contract-edit-buttons.delete-title") content=(t "contract-edit-buttons.delete-message")
+    confirmText=(t "contract-edit-buttons.delete-confirm") isOpened=isDeleteOpened confirm=(action "deleteContract")}}

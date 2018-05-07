@@ -1,0 +1,14 @@
+{{#if isRunning}}
+<li class="navbar-text">
+  {{t "timer.display" duration=(timer-display timerStart)}}
+</li>
+{{/if}}
+<li class="navbar-btn" style="padding-right: 10px">
+  {{#if isRunning}}
+    <button type="button" {{action "stopTimer"}} class="btn btn-danger">{{t "timer.stop-timer"}}</button>
+  {{else}}
+    <button type="button" {{action "startTimer"}} class="btn btn-success">{{t "timer.start-timer"}}</button>
+  {{/if}}
+</li>
+
+{{log-time-dialog title=(t "log-time.title") isOpened=isDialogOpened period=period contracts=contracts}}
